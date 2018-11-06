@@ -11,8 +11,11 @@
 |
 */
 
-Route::get('/', 'ProdutosController@index');
+Route::get('/', 'ProductController@index');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/seller/create', 'SellerController@create')->name('seller.create');
+Route::post('/seller/create', 'SellerController@store')->name('seller.store');

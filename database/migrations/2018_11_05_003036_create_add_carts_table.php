@@ -18,7 +18,10 @@ class CreateAddCartsTable extends Migration
             $table->double('subQuantity', 10, 2);
             $table->double('total', 10, 2);
             $table->string('checkout');
+            $table->integer('delivery_id')->unsigned();
             $table->timestamps();
+
+            $table->foreign('delivery_id')->references('id')->on('deliveries')->onDelete('CASCADE');
             $table->engine = 'InnoDB';
 
         });
