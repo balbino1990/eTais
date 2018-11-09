@@ -16,6 +16,7 @@ class CreateDeliveriesTable extends Migration
         Schema::create('deliveries', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('quantity');
+            $table->string('date');
             $table->timestamps();
             $table->engine = 'InnoDB';
 

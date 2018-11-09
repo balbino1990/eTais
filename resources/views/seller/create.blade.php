@@ -27,6 +27,16 @@
                                         <input type="text" class="form-control" name="list_price" placeholder="Folin tais agora">
                                 </div>
 
+                                 {{-- Kategoria tais nian --}}
+                                 <div class="form-group">
+                                        <label for="">Utilizador</label>
+                                        <select name="category_id" id="" class="form-control">
+                                            @foreach ($categories as $category)
+                                                <option value="{{$category->id}}">{{$category->name}}</option>
+                                            @endforeach
+                                        </select>  
+                                </div>
+
                                 {{-- Deskrisaun --}}
                                 <div class="form-group">
                                         <label for="">Deskrisaun: </label>
@@ -38,6 +48,7 @@
                                         <label for="">Imagem</label>
                                         <input type="text" class="form-control" name="image" placeholder="imagem">
                                 </div>
+                                category_id
 
                                 {{-- Utilizador nebe maka aumenta tais iha loja --}}
                                 <div class="form-group">

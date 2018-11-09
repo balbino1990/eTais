@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAddCartsTable extends Migration
+class CreateSubCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,13 @@ class CreateAddCartsTable extends Migration
      */
     public function up()
     {
-        Schema::create('add_carts', function (Blueprint $table) {
+        Schema::create('sub_categories', function (Blueprint $table) {
             $table->increments('id');
-            $table->double('subQuantity', 10, 2);
-            $table->double('total', 10, 2);
-            $table->string('checkout');
-            $table->integer('delivery_id')->unsigned();
+            $table->string('name');
+            $table->integer('category_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('delivery_id')->references('id')->on('deliveries')->onDelete('CASCADE');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('CASCADE');
             $table->engine = 'InnoDB';
 
         });
@@ -34,6 +32,6 @@ class CreateAddCartsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('add_carts');
+        Schema::dropIfExists('sub_categories');
     }
 }

@@ -24,8 +24,8 @@ class CreateProductsTable extends Migration
             $table->integer('category_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('CASCADE');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('CASCADE');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('CASCADE');
             $table->engine = 'InnoDB';
 
 

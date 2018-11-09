@@ -46,3 +46,7 @@ hr.style11 {
 	background: url(http://ibrahimjabbari.com/english/images/hr-11.png) repeat-x 0 0;
     border: 0;
 }
+
+.rodape{
+	border-top: 1px solid red;
+}
