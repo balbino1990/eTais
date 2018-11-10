@@ -17,5 +17,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+//Route::resource('seller', 'SellerController');
+
 Route::get('/seller/create', 'SellerController@create')->name('seller.create');
 Route::post('/seller/create', 'SellerController@store')->name('seller.store');
+Route::get('/seller/index', 'SellerController@index')->name('seller.index');
+

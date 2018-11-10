@@ -26,16 +26,28 @@
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel navbar-default navbar-fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <h3> {{ config('app.name', 'eTais') }}</h3><i>The world's of the Tais</i>
+                    <h3> {{ config('app.name', 'eTais') }}<sub style="font-size:10px;">&ensp;The world's of the Tais</sub></h3>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
+              
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown">Categorias<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                @php
+                                    ($categories = App\Category::all())
+                                @endphp
+                                    @foreach ($categories as $category)
+                                        <li><a class="navbar-brand" href="#"><option value="{{$category->id}}">{{$category->name}}</option></a></li>
+                                @endforeach
+                                    
+                            </ul>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

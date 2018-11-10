@@ -29,7 +29,7 @@
 
                                  {{-- Kategoria tais nian --}}
                                  <div class="form-group">
-                                        <label for="">Utilizador</label>
+                                        <label for="">Kategoria</label>
                                         <select name="category_id" id="" class="form-control">
                                             @foreach ($categories as $category)
                                                 <option value="{{$category->id}}">{{$category->name}}</option>
