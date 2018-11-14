@@ -13,4 +13,10 @@ class ProductController extends Controller
         
         return view('product.index')->with('product', $product);
     }
+
+    public function details($id)
+    {
+        $product = Product::where('id', $id)->first(); 
+        return view('product.details', compact('product'));
+    }
 }

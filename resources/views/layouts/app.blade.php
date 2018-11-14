@@ -26,7 +26,7 @@
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel navbar-default navbar-fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <h3> {{ config('app.name', 'eTais') }}<sub style="font-size:10px;">&ensp;The world's of the Tais</sub></h3>
+                    <h3> {{ config('app.name', 'eTais') }}<sub style="font-size:10px;">&ensp;Mundo Tais nian</sub></h3>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -47,6 +47,9 @@
                                 @endforeach
                                     
                             </ul>
+                        </li>
+                        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="text" name="" id="buka" placeholder="Buka tuir tais nia naran">
                         </li>
                     </ul>
 
@@ -90,8 +93,9 @@
             @yield('content')
         </main>
         <footer>
-            <hr class="rodape">
+            <hr style="border-top: 2px solid #8c8">
             <div class="col-md-12 text-center">&copy; Copyright <?php echo date("Y") ?> eTais corporation</div>
+            <div class="col-md-12 text-center">Created by Balbino Pinto</div>
         </footer>
     </div>
 </body>

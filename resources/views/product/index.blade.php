@@ -14,8 +14,8 @@
               <img src="{{$p->image}}" alt="Tais" width="180px;" height="250px;"><br>
               <p class="list-price text-danger">Folin antes: <s>${{$p->price}}</s></p>
               <p class="price">Folin agora: ${{$p->list_price}}</p>
-              <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#details-1">
-                detalhe</button><br><br>
+              <a class="btn btn-success" href="details/{{$p->id}}">Detalhe</a>
+              <br><br>
             </div>
         <?php endforeach; ?>
       </div>

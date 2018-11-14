@@ -23,8 +23,17 @@ class SellerController extends Controller
         return view('seller.create', compact('users', 'categories'));
     }
 
-    public function store()
+    public function store(Request $request)
     {
+        $this->validate($request, [
+            'name' => 'required',
+            'price' => 'required',
+            'list_price' => 'required',
+            'desc' => 'required',
+            'image' => 'required',
+            'category_id' => 'required' 
+        ]);
+
         Product::create([
             'name' => request('name'),
             'price' => request('price'),
@@ -35,7 +44,7 @@ class SellerController extends Controller
             'user_id' => request('user_id')
         ]);
         
-        return Redirect::to('seller/index');
+        return Redirect::to('seller')->with('success', 'Tais aumenta tiha ona ba loja');
     }
 
 
@@ -48,7 +57,8 @@ class SellerController extends Controller
      */
     public function show($id)
     {
-        //
+        $product = Product::where('id', $id)->first(); 
+        return view('seller.show', compact('product'));
     }
 
     /**
@@ -59,7 +69,9 @@ class SellerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::find($id);
+        $categories = Category::all();
+        return view('seller.edit', compact('product', 'categories'));
     }
 
     /**
@@ -71,7 +83,30 @@ class SellerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+        $this->validate($request, [
+            'name' => 'required',
+            'price' => 'required',
+            'list_price' => 'required',
+            'desc' => 'required',
+            'image' => 'required',
+            'category_id' => 'required' 
+        ]);
+        
+        
+         $product = Product::find($id);
+        $product->name = $request->input('name');
+        $product->price = $request->input('price');
+        $product->list_price = $request->input('list_price');
+        $product->category_id = $request->input('category_id');
+        $product->desc = $request->input('desc');
+        $product->image = $request->input('image');
+        //$product->user_id = $request->select('user_id');
+        $product->save();
+        
+       
+        return Redirect::to('seller')->with("success", "Tais atualiza tiha ona iha loja");
+        //return "ola mundio";
     }
 
     /**

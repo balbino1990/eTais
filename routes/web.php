@@ -12,14 +12,16 @@
 */
 
 Route::get('/', 'ProductController@index');
+Route::get('/details/{id}', 'ProductController@details');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//Route::resource('seller', 'SellerController');
+Route::resource('seller', 'SellerController');
 
-Route::get('/seller/create', 'SellerController@create')->name('seller.create');
-Route::post('/seller/create', 'SellerController@store')->name('seller.store');
-Route::get('/seller/index', 'SellerController@index')->name('seller.index');
-
+//Route::get('/seller/create', 'SellerController@create')->name('seller.create');
+//Route::post('/seller/create', 'SellerController@store')->name('seller.store');
+//Route::get('/seller/index', 'SellerController@index')->name('seller.index');
+//Route::get('/seller/edit/{id}', 'SellerController@edit')->name('seller.edit');
+//Route::patch('/seller/update/{id}', 'SellerController@update')->name('seller.update');
